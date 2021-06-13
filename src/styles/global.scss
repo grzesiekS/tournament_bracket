@@ -1,0 +1,19 @@
+@import "./settings.scss";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+}
+
+body {
+  background: $imperialPrimer;
+  font-family: $globalFont;
+  color: $casandoraYellow;
+}
+
+html {
+  scroll-behavior: smooth;
+}
