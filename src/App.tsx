@@ -1,9 +1,7 @@
 import React from 'react';
 
-const App: React.FC = () => (
-  <div>
-    <h1>Hello World</h1>
-  </div>
-);
+import { BracketScoreView } from './components/views/BracketScoreView/BracketScoreView';
 
-export default App;
+export const App: React.FC = () => (
+  <BracketScoreView />
+);
