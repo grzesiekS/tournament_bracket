@@ -1,0 +1,15 @@
+@import "./settings.scss";
+@import "./bg_animation.scss";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
