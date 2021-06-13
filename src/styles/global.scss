@@ -9,7 +9,9 @@ body, html {
 }
 
 body {
-  background: #1a1e23;
+  background: $imperialPrimer;
+  font-family: $globalFont;
+  color: $casandoraYellow;
 }
 
 html {
