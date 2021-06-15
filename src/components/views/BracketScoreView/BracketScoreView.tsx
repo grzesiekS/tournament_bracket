@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Bracket } from '../../features/Bracket/Bracket';
+import { ScoreList } from '../../features/ScoreList/ScoreList';
 
 import styles from './BracketScoreView.module.scss';
 
@@ -10,7 +11,7 @@ export const BracketScoreView: React.FC = () => (
       <Bracket />
     </div>
     <div className={styles['col--s']}>
-      <Bracket />
+      <ScoreList />
     </div>
   </div>
 );
