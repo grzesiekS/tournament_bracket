@@ -16,9 +16,10 @@ $sway-type: "sway-left-to-right", "sway-right-to-left";
 
 .bubbles {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
 }
 
 .bubble {

@@ -1,0 +1,15 @@
+@import "../../../styles/settings.scss";
+
+.container {
+  max-width: $containerWidth;
+  margin: 70px auto 0;
+  display: flex;
+}
+
+.col--xl {
+  flex: 75%;
+}
+
+.col--s {
+  flex: 25%;
+}
