@@ -1,9 +1,4 @@
-export interface Action {
-  type: string,
-  payload: any;
-}
-
-export interface Team {
+export interface TeamInt {
   name: string,
   players: string[],
   win: number,
