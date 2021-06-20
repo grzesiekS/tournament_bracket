@@ -12,3 +12,8 @@ export interface TeamInt {
   draw: number,
   lose: number,
 }
+
+export interface TitleInt {
+  text: string,
+  color: 'dark' | 'light',
+}
