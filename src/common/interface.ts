@@ -5,6 +5,7 @@ export interface ActionInt {
 }
 
 export interface TeamInt {
+  _id?: string,
   name: string,
   players: string[],
   win: number,
