@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import styles from './BackgroundAnimation.module.scss';
 
-const bubbleCreator = (bubbleQty: Number) => {
+const bubbleCreator = (bubbleQty: number) => {
   const resultArray = [];
   for(let i = 0; i < bubbleQty; i++) {
     resultArray.push(i);

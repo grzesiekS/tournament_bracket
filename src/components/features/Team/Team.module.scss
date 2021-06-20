@@ -1,0 +1,29 @@
+@import "../../../styles/settings.scss";
+
+.container {
+  background-color: $casandoraYellow;
+  margin: 2px;
+  padding: 5px;
+  text-align: center;
+  transition: all $transitionTime--short;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.6;
+  }
+}
+
+.flexbox {
+  display: flex;
+  justify-content: center;
+
+  p {
+    background-color: $blackPearl;
+    margin: 0 4px 0 0;
+    padding: 2px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

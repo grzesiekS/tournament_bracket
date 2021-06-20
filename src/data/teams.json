@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "1",
+    "name": "The A Team",
+    "players": [],
+    "win": 0,
+    "draw": 0,
+    "lose": 0
+  },
+  {
+    "_id": "2",
+    "name": "The B Team",
+    "players": [],
+    "win": 0,
+    "draw": 0,
+    "lose": 0
+  }
+]
