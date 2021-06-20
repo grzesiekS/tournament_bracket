@@ -1,0 +1,15 @@
+@import "../../../styles/settings.scss";
+
+.title {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 3px 0;
+
+  &.dark {
+    color: $blackPearl;
+  }
+
+  &.light {
+    color: $casandoraYellow;
+  }
+}
