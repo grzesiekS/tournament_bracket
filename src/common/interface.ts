@@ -13,6 +13,14 @@ export interface TeamInt {
   lose: number,
 }
 
+export interface PlayerInt {
+  _id: string,
+  name: string,
+  win: number,
+  draw: number,
+  lose: number,
+}
+
 export interface TitleInt {
   text: string,
   color: 'dark' | 'light',
