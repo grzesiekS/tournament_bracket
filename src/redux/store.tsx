@@ -3,10 +3,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import teamsData from '../data/teams.json';
+import playersData from '../data/players.json';
 
 
 const initialState = {
   teams: teamsData,
+  players: playersData,
 };
 
 // define reducers
