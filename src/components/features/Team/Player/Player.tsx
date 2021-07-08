@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { PlayerInt } from '../../../../common/interface';
 
+import { ScoreDetails } from '../../ScoreDetails/ScoreDetails';
 import styles from './Player.module.scss';
 
 export const Player: React.FC<{id:string}> = ({ id }) => {
@@ -12,11 +13,11 @@ export const Player: React.FC<{id:string}> = ({ id }) => {
   return(
     <div className={styles.container}>
       <p className={styles.name}>{player.name}</p>
-      <div className={styles.flexbox}>
-        <p>{`w:${player.win}`}</p>
-        <p>{`d:${player.draw}`}</p>
-        <p>{`l:${player.lose}`}</p>
-      </div>
+      <ScoreDetails
+        win={player.win}
+        draw={player.draw}
+        lose={player.lose}
+      />
     </div>
   );
 };
