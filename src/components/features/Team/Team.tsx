@@ -19,6 +19,7 @@ export const Team: React.FC<TeamInt & ViewPlayerStatusInt> = (
   }) => {
 
   const [showPlayers, setShowPlayers] = useState(false);
+  const buttonTitle = showPlayers ? 'Hide Players' : 'Show Players';
 
   return (
     <div className={styles.container}>
@@ -30,7 +31,7 @@ export const Team: React.FC<TeamInt & ViewPlayerStatusInt> = (
       />
       {viewPlayerStatus && 
         <Button 
-          title={'Show Players'}
+          title={buttonTitle}
           actionOnClick={() => setShowPlayers(!showPlayers)} 
         />
       }
