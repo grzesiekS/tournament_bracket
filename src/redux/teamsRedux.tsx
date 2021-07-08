@@ -6,8 +6,8 @@ export const getTeams = (state: { teams: TeamInt[]; }):TeamInt[] => state.teams;
 /* ACTIONS */
 
 // action name creator
-const reducerName = 'teams';
-const createActionName = (name:string) => `app/${reducerName}/${name}`;
+// const reducerName = 'teams';
+// const createActionName = (name:string) => `app/${reducerName}/${name}`;
 
 // Action types
 
