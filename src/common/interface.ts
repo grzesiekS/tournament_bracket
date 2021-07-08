@@ -25,3 +25,9 @@ export interface TitleInt {
   text: string,
   color: 'dark' | 'light',
 }
+
+export interface ScoreDetailsInt {
+  win: number,
+  draw: number,
+  lose: number,
+}
