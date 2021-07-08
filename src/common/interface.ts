@@ -31,3 +31,7 @@ export interface ScoreDetailsInt {
   draw: number,
   lose: number,
 }
+
+export interface ViewPlayerStatusInt {
+  viewPlayerStatus?: boolean,
+}

@@ -1,0 +1,19 @@
+@import "../../../styles/settings.scss";
+
+.button {
+	margin: 7px;
+	padding: 5px;
+	border: 2px solid $blackPearl;
+	text-transform: uppercase;
+	font-family: $globalFont;
+	font-weight: 700;
+	color: $casandoraYellow;
+	background-color: $blackPearl;
+	transition: all $transitionTime--short;
+
+	&:hover {
+		cursor: pointer;
+		background-color: $casandoraYellow;
+		color: $blackPearl;
+	}
+}
