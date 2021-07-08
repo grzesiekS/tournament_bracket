@@ -1,0 +1,26 @@
+@import "../../../../styles/settings.scss";
+
+.container {
+  background-color: $blackPearl;
+  margin: 7px 0;
+}
+
+.name {
+  margin: 0;
+  padding: 5px;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: center;
+
+  p {
+    background-color: $blackPearl;
+    margin: 0 4px 0 0;
+    padding: 2px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
