@@ -16,6 +16,7 @@ export const ScoreList: React.FC = () => {
       {teams.map(team => (
         <Team
           key={team._id}
+          viewPlayerStatus={true}
           {...team}
         />
       ))}
