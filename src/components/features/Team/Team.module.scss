@@ -1,4 +1,5 @@
 @import "../../../styles/settings.scss";
+@import "../../../styles/keyframes.scss";
 
 .container {
   background-color: $casandoraYellow;
@@ -10,4 +11,8 @@
   &:hover {
     opacity: 0.6;
   }
+}
+
+.playerList {
+  animation: fadeIn 0.5s ease-in-out;
 }
