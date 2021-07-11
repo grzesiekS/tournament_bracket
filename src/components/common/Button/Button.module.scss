@@ -16,4 +16,8 @@
 		background-color: $casandoraYellow;
 		color: $blackPearl;
 	}
+
+	&:focus {
+		outline: none;
+	}
 }
