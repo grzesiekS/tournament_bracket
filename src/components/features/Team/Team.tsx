@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import { TeamInt, ViewPlayerStatusInt } from '../../../common/interface';
-
 import { Title } from '../../common/Title/Title';
 import { Player } from './Player/Player';
 import { ScoreDetails } from '../ScoreDetails/ScoreDetails';
@@ -9,7 +7,17 @@ import { Button } from '../../common/Button/Button';
 
 import styles from './Team.module.scss';
 
-export const Team: React.FC<TeamInt & ViewPlayerStatusInt> = (
+interface TeamInt {
+  _id: string,
+  name: string,
+  players: string[],
+  win: number,
+  draw: number,
+  lose: number,
+  viewPlayerStatus?: boolean
+}
+
+export const Team: React.FC<TeamInt> = (
   { name,
     win, 
     draw, 

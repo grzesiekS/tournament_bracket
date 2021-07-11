@@ -1,9 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { PlayerInt } from '../../../../common/interface';
 
 import { ScoreDetails } from '../../ScoreDetails/ScoreDetails';
 import styles from './Player.module.scss';
+
+interface PlayerInt {
+  _id: string,
+  name: string,
+  win: number,
+  draw: number,
+  lose: number,
+}
 
 export const Player: React.FC<{id:string}> = ({ id }) => {
 
