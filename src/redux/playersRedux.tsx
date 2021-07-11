@@ -1,4 +1,16 @@
-import { ActionInt, PlayerInt } from '../common/interface';
+interface ActionInt {
+  type: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  payload?: any,
+}
+
+interface PlayerInt {
+  _id: string,
+  name: string,
+  win: number,
+  draw: number,
+  lose: number,
+}
 
 /* SELECTORS */
 

@@ -1,4 +1,17 @@
-import { ActionInt, TeamInt } from '../common/interface';
+interface ActionInt {
+  type: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  payload?: any,
+}
+
+interface TeamInt {
+  _id: string,
+  name: string,
+  players: string[],
+  win: number,
+  draw: number,
+  lose: number,
+}
 
 /* SELECTORS */
 export const getTeams = (state: { teams: TeamInt[]; }):TeamInt[] => state.teams;

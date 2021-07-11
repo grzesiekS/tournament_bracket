@@ -1,7 +1,12 @@
 import React from 'react';
-import { ScoreDetailsInt } from '../../../common/interface';
 
 import styles from './ScoreDetails.module.scss';
+
+interface ScoreDetailsInt {
+  win: number,
+  draw: number,
+  lose: number,
+}
 
 export const ScoreDetails: React.FC<ScoreDetailsInt> = ({ win, draw, lose }) => (
   <div className={styles.flexbox}>
