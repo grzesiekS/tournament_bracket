@@ -7,7 +7,7 @@ interface FormComponentsInt {
   labelText: string
   type?: string
   value?: string | number
-  onChange?: () => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const FormComponents: React.FC<FormComponentsInt> = (
