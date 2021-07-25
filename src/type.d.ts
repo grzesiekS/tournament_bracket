@@ -24,3 +24,14 @@ interface IPlayer {
 interface ITeamComponent extends ITeam {
   viewPlayerStatus?: boolean
 }
+
+type TeamState = {
+  teams: ITeam[]
+}
+
+type TeamAction = {
+  type: string,
+  teams: ITeam[]
+}
+
+type DispatchType = (args: TeamAction) => TeamAction
