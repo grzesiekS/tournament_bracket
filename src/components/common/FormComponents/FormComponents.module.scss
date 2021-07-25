@@ -1,0 +1,16 @@
+@import "../../../styles/settings.scss";
+
+.input {
+  background-color: $blackPearl;
+  border: 1px solid $casandoraYellow;
+  color: $casandoraYellow;
+  font-size: 1rem;
+  padding: 0.3em;
+  margin: 0.3em;
+  transition: all $transitionTime--short;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0.3em $casandoraYellow;
+  }
+}
