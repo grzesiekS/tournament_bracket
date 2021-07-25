@@ -31,7 +31,19 @@ type TeamState = {
 
 type TeamAction = {
   type: string,
-  teams: ITeam[]
+  team: ITeam
 }
 
-type DispatchType = (args: TeamAction) => TeamAction
+type PlayerState = {
+  players: IPlayer[]
+}
+
+type PlayerAction = {
+  type: string,
+  player: IPlayer
+}
+
+type state = {
+  players: PlayerState,
+  teams: TeamState
+}

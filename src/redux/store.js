@@ -2,21 +2,19 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
-import teamsData from '../data/teams.json';
-import playersData from '../data/players.json';
-
 import globalReducer from './globalRedux';
 import teamsReducer from './teamsRedux';
+import playersReducer from './playersRedux';
 
 const initialState = {
-  teams: teamsData,
-  players: playersData,
+  
 };
 
 // define reducers
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const reducers = {
   teams: teamsReducer,
+  players: playersReducer,
 };
 
 // add blank reducers for initial state properties without reducers
