@@ -7,17 +7,8 @@ import { Team } from '../Team/Team';
 
 import styles from './ScoreList.module.scss';
 
-interface TeamInt {
-  _id: string,
-  name: string,
-  players: string[],
-  win: number,
-  draw: number,
-  lose: number,
-}
-
 export const ScoreList: React.FC = () => {
-  const teams: TeamInt[] = useSelector(getTeams);
+  const teams: ITeam[] = useSelector(getTeams);
 
   return (
     <div className={styles.container}>

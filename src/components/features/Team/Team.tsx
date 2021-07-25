@@ -7,17 +7,7 @@ import { Button } from '../../common/Button/Button';
 
 import styles from './Team.module.scss';
 
-interface TeamInt {
-  _id: string,
-  name: string,
-  players: string[],
-  win: number,
-  draw: number,
-  lose: number,
-  viewPlayerStatus?: boolean
-}
-
-export const Team: React.FC<TeamInt> = (
+export const Team: React.FC<ITeamComponent> = (
   { name,
     win, 
     draw, 

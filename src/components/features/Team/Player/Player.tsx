@@ -4,17 +4,9 @@ import { useSelector } from 'react-redux';
 import { ScoreDetails } from '../../ScoreDetails/ScoreDetails';
 import styles from './Player.module.scss';
 
-interface PlayerInt {
-  _id: string,
-  name: string,
-  win: number,
-  draw: number,
-  lose: number,
-}
-
 export const Player: React.FC<{id:string}> = ({ id }) => {
 
-  const player = useSelector((state: { players: PlayerInt[]; }) => state.players
+  const player = useSelector((state: { players: IPlayer[]; }) => state.players
     .filter(player =>player._id === id)[0]);
 
   return(
