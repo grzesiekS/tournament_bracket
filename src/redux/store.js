@@ -5,6 +5,8 @@ import thunk from 'redux-thunk';
 import teamsData from '../data/teams.json';
 import playersData from '../data/players.json';
 
+import globalReducer from './globalRedux';
+import teamsReducer from './teamsRedux';
 
 const initialState = {
   teams: teamsData,
@@ -13,8 +15,8 @@ const initialState = {
 
 // define reducers
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const reducers: any = {
-  
+const reducers = {
+  teams: teamsReducer,
 };
 
 // add blank reducers for initial state properties without reducers
@@ -27,10 +29,15 @@ Object.keys(initialState).forEach(item => {
 // combine reducers
 const combinedReducers = combineReducers(reducers);
 
+// merge all reducers with globalReducer
+const storeReducer = (state, action) => {
+  const modifiedState = globalReducer(state, action);
+  return combinedReducers(modifiedState, action);
+};
 
 // create store
 const store = createStore(
-  combinedReducers,
+  storeReducer,
   initialState,
   composeWithDevTools(
     applyMiddleware(thunk)

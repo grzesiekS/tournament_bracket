@@ -10,8 +10,17 @@ import { TeamAddPopUp } from './TeamAddPopUp/TeamAddPopUp';
 
 import styles from './Bracket.module.scss';
 
+interface TeamInt {
+  _id: string,
+  name: string,
+  players: string[],
+  win: number,
+  draw: number,
+  lose: number,
+}
+
 export const Bracket: React.FC = () => {
-  const teams = useSelector(getTeams);
+  const teams: TeamInt[] = useSelector(getTeams);
 
   const [teamAddPopUpVisibility, setTeamAddPopUpVisibility] = useState(false);
 
@@ -20,7 +29,7 @@ export const Bracket: React.FC = () => {
       {teamAddPopUpVisibility 
         && 
         <TeamAddPopUp 
-          closePopUp={() => setTeamAddPopUpVisibility(false)}
+          closePopUp={(value) => setTeamAddPopUpVisibility(value)}
         />
       }
       <div className={styles.container}>
