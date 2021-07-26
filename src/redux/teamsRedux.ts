@@ -1,4 +1,4 @@
-//import shortid from 'shortid';
+//import shortid from 'shortid'
 import teamsData from '../data/teams.json';
 
 const initialState: TeamState = {
@@ -35,7 +35,7 @@ const createNewTeamTemplate = (
 );
 
 export const addNewTeam = (teamName: string): TeamAction => (
-  {team: createNewTeamTemplate('4', teamName, [], 0, 0, 0), type: ADD_TEAM}
+  {team: createNewTeamTemplate('1234', teamName, [], 0, 0, 0), type: ADD_TEAM}
 );
 
 // reducer

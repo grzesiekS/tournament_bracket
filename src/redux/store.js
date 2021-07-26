@@ -2,7 +2,6 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
-import globalReducer from './globalRedux';
 import teamsReducer from './teamsRedux';
 import playersReducer from './playersRedux';
 
@@ -27,15 +26,9 @@ Object.keys(initialState).forEach(item => {
 // combine reducers
 const combinedReducers = combineReducers(reducers);
 
-// merge all reducers with globalReducer
-const storeReducer = (state, action) => {
-  const modifiedState = globalReducer(state, action);
-  return combinedReducers(modifiedState, action);
-};
-
 // create store
 const store = createStore(
-  storeReducer,
+  combinedReducers,
   initialState,
   composeWithDevTools(
     applyMiddleware(thunk)
