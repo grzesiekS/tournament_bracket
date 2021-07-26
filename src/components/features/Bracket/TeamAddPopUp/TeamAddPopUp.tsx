@@ -19,7 +19,7 @@ export const TeamAddPopUp: React.FC<TeamAddPopUpInt> = ({ closePopUp }) => {
   const createNewTeam = () => {
     if(teamName != '') {
       closePopUp(false);
-      //dispatch(addNewTeam(teamName));
+      dispatch(addNewTeam(teamName));
     }
   };
 
