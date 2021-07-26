@@ -17,16 +17,25 @@ const createActionName = (name: string) => `app/${reducerName}/${name}`;
 const ADD_TEAM = createActionName('ADD_TEAM');
 
 // Action creators
+const createNewTeamTemplate = (
+  _id: string, 
+  name: string, 
+  players: string[], 
+  draw: number, 
+  lose: number, 
+  win: number):ITeam => (
+  {
+    _id:_id,
+    name:name,
+    players: players,
+    draw: draw,
+    lose: lose,
+    win: win,
+  }
+);
+
 export const addNewTeam = (teamName: string): TeamAction => (
-  {team: 
-    {
-      _id: '4',
-      name: teamName,
-      players: [],
-      draw: 0,
-      lose: 0,
-      win: 0,
-    }, type: ADD_TEAM}
+  {team: createNewTeamTemplate('4', teamName, [], 0, 0, 0), type: ADD_TEAM}
 );
 
 // reducer
