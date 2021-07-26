@@ -10,17 +10,8 @@ import { TeamAddPopUp } from './TeamAddPopUp/TeamAddPopUp';
 
 import styles from './Bracket.module.scss';
 
-interface TeamInt {
-  _id: string,
-  name: string,
-  players: string[],
-  win: number,
-  draw: number,
-  lose: number,
-}
-
 export const Bracket: React.FC = () => {
-  const teams: TeamInt[] = useSelector(getTeams);
+  const teams: ITeam[] = useSelector(getTeams);
 
   const [teamAddPopUpVisibility, setTeamAddPopUpVisibility] = useState(false);
 
