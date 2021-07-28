@@ -2,6 +2,15 @@ interface IPopUp {
   closePopUp: (value: boolean) => void;
 }
 
+interface IFormComponents {
+  ComponentType: 'input' | 'select'
+  labelText: string
+  type?: string
+  value?: string | number
+  onChange?: (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => void;
+  selectOptions?: selectElement[]
+}
+
 interface ITeam {
   _id: string,
   name: string,
@@ -64,4 +73,9 @@ type PlayerAction = {
 type state = {
   players: PlayerState,
   teams: TeamState
+}
+
+type selectElement = {
+  optionValue: string,
+  optionText: string
 }
