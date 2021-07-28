@@ -1,3 +1,7 @@
+interface IPopUp {
+  closePopUp: (value: boolean) => void;
+}
+
 interface ITeam {
   _id: string,
   name: string,

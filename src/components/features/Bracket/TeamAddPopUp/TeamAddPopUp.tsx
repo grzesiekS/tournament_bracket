@@ -8,11 +8,7 @@ import { Button } from '../../../common/Button/Button';
 import styles from './TeamAddPopUp.module.scss';
 import { useDispatch } from 'react-redux';
 
-interface TeamAddPopUpInt {
-  closePopUp: (value: boolean) => void;
-}
-
-export const TeamAddPopUp: React.FC<TeamAddPopUpInt> = ({ closePopUp }) => {
+export const TeamAddPopUp: React.FC<IPopUp> = ({ closePopUp }) => {
   const dispatch = useDispatch();
   const [teamName, setTeamName] = useState('');
 
