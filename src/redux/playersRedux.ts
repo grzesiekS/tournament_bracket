@@ -5,6 +5,7 @@ const initialState: PlayerState = {
 };
 
 /* SELECTORS */
+export const getPlayers = (state: state): IPlayer[] => state.players.players;
 
 /* ACTIONS */
 
