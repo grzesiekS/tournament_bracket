@@ -8,11 +8,12 @@ import styles from './PlayerAddPopUp.module.scss';
 export const PlayerAddPopUp: React.FC<IPopUp> = ({ closePopUp, teams = [] }) => {
   
   const [playerName, setPlayerName] = useState('');
+  const [selectedTeam, setSelectedTeam] = useState('');
   const [selectElement, setSelectElement ] = useState<selectElement[]>([]);
 
   useEffect(() => {
     const newSelectElement:selectElement[] = [];
-    
+
     teams.forEach(team => {
       newSelectElement.push(
         {
@@ -21,7 +22,8 @@ export const PlayerAddPopUp: React.FC<IPopUp> = ({ closePopUp, teams = [] }) => 
         }
       );
     });
-
+    
+    setSelectedTeam(newSelectElement[0].optionValue);
     setSelectElement(newSelectElement);
   },[teams]);
 
@@ -38,6 +40,8 @@ export const PlayerAddPopUp: React.FC<IPopUp> = ({ closePopUp, teams = [] }) => 
           ComponentType='select'
           labelText='Teams'
           selectOptions={selectElement}
+          onChange={(e) => setSelectedTeam(e.target.value)}
+          value={selectedTeam}
         />
         <div className={styles.buttonsBlock}>
           <Button 

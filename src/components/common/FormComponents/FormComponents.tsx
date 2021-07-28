@@ -27,6 +27,7 @@ export const FormComponents: React.FC<IFormComponents> = (
             <option 
               key={option.optionValue}
               value={option.optionValue}
+              selected={option.optionValue === value}
             >
               {option.optionText}
             </option>
