@@ -1,12 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { FormComponents } from '../../../common/FormComponents/FormComponents';
 import { Button } from '../../../common/Button/Button';
 
 import styles from './PlayerAddPopUp.module.scss';
 
-export const PlayerAddPopUp: React.FC<IPopUp> = ({ closePopUp }) => {
+export const PlayerAddPopUp: React.FC<IPopUp> = ({ closePopUp, teams = [] }) => {
+  
   const [playerName, setPlayerName] = useState('');
+  const [selectElement, setSelectElement ] = useState<selectElement[]>([]);
+
+  useEffect(() => {
+    const newSelectElement:selectElement[] = [];
+    
+    teams.forEach(team => {
+      newSelectElement.push(
+        {
+          optionText: team.name,
+          optionValue: team._id,
+        }
+      );
+    });
+
+    setSelectElement(newSelectElement);
+  },[teams]);
 
   return (
     <div className={styles.container}>
@@ -16,6 +33,11 @@ export const PlayerAddPopUp: React.FC<IPopUp> = ({ closePopUp }) => {
           labelText='Player Name'
           value={playerName}
           onChange={(e) => setPlayerName(e.target.value)}
+        />
+        <FormComponents 
+          ComponentType='select'
+          labelText='Teams'
+          selectOptions={selectElement}
         />
         <div className={styles.buttonsBlock}>
           <Button 

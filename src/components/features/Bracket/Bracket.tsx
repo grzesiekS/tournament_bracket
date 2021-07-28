@@ -29,6 +29,7 @@ export const Bracket: React.FC = () => {
         &&
         <PlayerAddPopUp 
           closePopUp={(value) => setPlayerAddPopUpVisibility(value)}
+          teams={teams}
         />
       }
       <div className={styles.container}>

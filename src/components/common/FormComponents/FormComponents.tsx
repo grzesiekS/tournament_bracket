@@ -13,7 +13,7 @@ export const FormComponents: React.FC<IFormComponents> = (
   }
 ) => {
   return (
-    <>
+    <div className={styles.container}>
       <label className={styles.label}>{labelText}</label>
       <ComponentType
         className={styles[ComponentType]}
@@ -22,7 +22,7 @@ export const FormComponents: React.FC<IFormComponents> = (
         onChange={onChange}
       >
         {ComponentType === 'select'
-          &&
+          ?
           selectOptions.map(option => (
             <option 
               key={option.optionValue}
@@ -31,8 +31,10 @@ export const FormComponents: React.FC<IFormComponents> = (
               {option.optionText}
             </option>
           ))
+          :
+          null
         }
       </ComponentType> 
-    </>
+    </div>
   );
 };
