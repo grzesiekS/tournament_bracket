@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { addNewPlayer } from '../../../../redux/playersRedux';
 
 import { FormComponents } from '../../../common/FormComponents/FormComponents';
 import { Button } from '../../../common/Button/Button';
@@ -6,8 +9,10 @@ import { Button } from '../../../common/Button/Button';
 import styles from './PlayerAddPopUp.module.scss';
 
 export const PlayerAddPopUp: React.FC<IPopUp> = ({ closePopUp, teams = [] }) => {
+  const dispatch = useDispatch();
   
   const [playerName, setPlayerName] = useState('');
+  const [playerID] = useState('1234');
   const [selectedTeam, setSelectedTeam] = useState('');
   const [selectElement, setSelectElement ] = useState<selectElement[]>([]);
 
@@ -27,6 +32,14 @@ export const PlayerAddPopUp: React.FC<IPopUp> = ({ closePopUp, teams = [] }) => 
     setSelectElement(newSelectElement);
   },[teams]);
 
+  const createNewPlayer = () => {
+    if(
+      playerName !== '' && selectedTeam !== '') {
+      dispatch(addNewPlayer(playerID, playerName));
+      closePopUp(false);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.form}>
@@ -45,7 +58,8 @@ export const PlayerAddPopUp: React.FC<IPopUp> = ({ closePopUp, teams = [] }) => 
         />
         <div className={styles.buttonsBlock}>
           <Button 
-            title='Add Player' 
+            title='Add Player'
+            actionOnClick={() => createNewPlayer()} 
           />
           <Button 
             title='Close'

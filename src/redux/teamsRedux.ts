@@ -31,6 +31,7 @@ const createNewTeamTemplate = (
     draw: draw,
     lose: lose,
     win: win,
+    timeStamp: new Date(),
   }
 );
 

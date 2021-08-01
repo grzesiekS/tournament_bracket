@@ -19,6 +19,7 @@ interface ITeam {
   win: number,
   draw: number,
   lose: number,
+  timeStamp?: Date,
 }
 
 interface ITeamAction {
@@ -42,6 +43,7 @@ interface IPlayer {
   win: number,
   draw: number,
   lose: number,
+  timeStamp?: Date,
 }
 
 interface ITeamComponent extends ITeam {
