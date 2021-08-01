@@ -1,8 +1,13 @@
 //import shortid from 'shortid'
 import teamsData from '../data/teams.json';
 
+const newTeamsData = teamsData.map(team => ({
+  ...team,
+  timeStamp: new Date(),
+}));
+
 const initialState: TeamState = {
-  teams: teamsData,
+  teams: newTeamsData,
 };
 /* SELECTORS */
 export const getTeams = (state: state): ITeam[] => state.teams.teams;

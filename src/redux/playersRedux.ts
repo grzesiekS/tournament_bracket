@@ -1,11 +1,18 @@
 import playersData from '../data/players.json';
 
+const newPlayersData = playersData.map(player => ({
+  ...player,
+  timeStamp: new Date(),
+}));
+
 const initialState: PlayerState = {
-  players: playersData,
+  players: newPlayersData,
 };
 
 /* SELECTORS */
 export const getPlayers = (state: state): IPlayer[] => state.players.players;
+export const getNewPlayer = (state: state): IPlayer => state.players.players
+  .sort((a: IPlayer, b: IPlayer): number => a.timeStamp.getTime() - b.timeStamp.getTime())[0];
 
 /* ACTIONS */
 
