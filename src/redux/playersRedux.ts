@@ -11,8 +11,8 @@ const initialState: PlayerState = {
 
 /* SELECTORS */
 export const getPlayers = (state: state): IPlayer[] => state.players.players;
-export const getNewPlayer = (state: state): IPlayer => state.players.players
-  .sort((a: IPlayer, b: IPlayer): number => a.timeStamp.getTime() - b.timeStamp.getTime())[0];
+export const getNewPlayer = (state: state): IPlayer[] => state.players.players
+  .sort((a: IPlayer, b: IPlayer): number => b.timeStamp.getTime() - a.timeStamp.getTime());
 
 /* ACTIONS */
 
@@ -39,8 +39,8 @@ const createNewPlayerTemplate = (
   timeStamp: new Date(),
 });
 
-export const addNewPlayer = (playerId: string, playerName: string): PlayerAction => (
-  {player: createNewPlayerTemplate(playerId, playerName, 0, 0, 0), type: ADD_PLAYER});
+export const addNewPlayer = (playerName: string): PlayerAction => (
+  {player: createNewPlayerTemplate('1234', playerName, 0, 0, 0), type: ADD_PLAYER});
 
 // reducer
 export default function reducer(state: PlayerState = initialState, action:PlayerAction): PlayerState {

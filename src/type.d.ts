@@ -1,5 +1,5 @@
 interface IPopUp {
-  closePopUp: (value: boolean) => void;
+  closePopUp: (value: boolean) => void
   teams?: ITeam[]
 }
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { addNewPlayer } from '../../../../redux/playersRedux';
+import { addNewTeamPlayer } from '../../../../redux/teamsRedux';
 
 import { FormComponents } from '../../../common/FormComponents/FormComponents';
 import { Button } from '../../../common/Button/Button';
@@ -10,9 +11,8 @@ import styles from './PlayerAddPopUp.module.scss';
 
 export const PlayerAddPopUp: React.FC<IPopUp> = ({ closePopUp, teams = [] }) => {
   const dispatch = useDispatch();
-  
+
   const [playerName, setPlayerName] = useState('');
-  const [playerID] = useState('1234');
   const [selectedTeam, setSelectedTeam] = useState('');
   const [selectElement, setSelectElement ] = useState<selectElement[]>([]);
 
@@ -35,7 +35,8 @@ export const PlayerAddPopUp: React.FC<IPopUp> = ({ closePopUp, teams = [] }) => 
   const createNewPlayer = () => {
     if(
       playerName !== '' && selectedTeam !== '') {
-      dispatch(addNewPlayer(playerID, playerName));
+      dispatch(addNewPlayer(playerName));
+      dispatch(addNewTeamPlayer(selectedTeam, '1234'));
       closePopUp(false);
     }
   };
