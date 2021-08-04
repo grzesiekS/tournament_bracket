@@ -1,3 +1,17 @@
+interface IPopUp {
+  closePopUp: (value: boolean) => void
+  teams?: ITeam[]
+}
+
+interface IFormComponents {
+  ComponentType: 'input' | 'select'
+  labelText: string
+  type?: string
+  value?: string | number
+  onChange?: (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => void;
+  selectOptions?: selectElement[]
+}
+
 interface ITeam {
   _id: string,
   name: string,
@@ -5,6 +19,7 @@ interface ITeam {
   win: number,
   draw: number,
   lose: number,
+  timeStamp: Date,
 }
 
 interface ITeamAction {
@@ -28,6 +43,7 @@ interface IPlayer {
   win: number,
   draw: number,
   lose: number,
+  timeStamp: Date,
 }
 
 interface ITeamComponent extends ITeam {
@@ -60,4 +76,9 @@ type PlayerAction = {
 type state = {
   players: PlayerState,
   teams: TeamState
+}
+
+type selectElement = {
+  optionValue: string,
+  optionText: string
 }

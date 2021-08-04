@@ -1,6 +1,9 @@
 @import "../../../styles/settings.scss";
 
-.input {
+.container {
+  margin-bottom: 10px;
+}
+.input, .select {
   background-color: $blackPearl;
   border: 1px solid $casandoraYellow;
   color: $casandoraYellow;
@@ -12,5 +15,11 @@
   &:focus {
     outline: none;
     box-shadow: 0 0 0.3em $casandoraYellow;
+  }
+}
+
+.select {
+  &:hover {
+    cursor: pointer;
   }
 }
