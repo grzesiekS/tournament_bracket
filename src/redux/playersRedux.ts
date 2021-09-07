@@ -22,6 +22,7 @@ const createActionName = (name:string) => `app/${reducerName}/${name}`;
 
 // Action types
 const ADD_PLAYER = createActionName('ADD_PLAYER');
+const REMOVE_PLAYER = createActionName('REMOVE_PLAYER');
 
 // Action creators
 const createNewPlayerTemplate = (
@@ -42,6 +43,8 @@ const createNewPlayerTemplate = (
 export const addNewPlayer = (playerName: string): PlayerAction => (
   {player: createNewPlayerTemplate('1234', playerName, 0, 0, 0), type: ADD_PLAYER});
 
+export const removePlayer = (playerId: string): PlayerAction => (
+  {player: createNewPlayerTemplate(playerId, '', 0, 0, 0), type: REMOVE_PLAYER});
 // reducer
 export default function reducer(state: PlayerState = initialState, action:PlayerAction): PlayerState {
   switch(action.type) {
@@ -50,6 +53,13 @@ export default function reducer(state: PlayerState = initialState, action:Player
         players: [
           ...state.players,
           action.player,
+        ],
+      };
+    }
+    case REMOVE_PLAYER: {
+      return {
+        players: [
+          ...state.players.filter(player => player._id !== action.player._id),
         ],
       };
     }
