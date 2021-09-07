@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
+import { removeTeam } from '../../../redux/teamsRedux';
 
 import { Title } from '../../common/Title/Title';
 import { Player } from './Player/Player';
@@ -11,13 +14,14 @@ import styles from './Team.module.scss';
 
 export const Team: React.FC<ITeamComponent> = (
   { name,
+    _id,
     win, 
     draw, 
     lose, 
     players, 
     viewPlayerStatus = false,
   }) => {
-
+  const dispatch = useDispatch();
   const [showPlayers, setShowPlayers] = useState(false);
   const buttonTitle = showPlayers ? 'Hide Players' : 'Show Players';
 
@@ -36,7 +40,10 @@ export const Team: React.FC<ITeamComponent> = (
           actionOnClick={() => setShowPlayers(!showPlayers)} 
         />
         :
-        <Button title="">
+        <Button 
+          title="" 
+          actionOnClick={() => dispatch(removeTeam(_id))}
+        >
           <FontAwesomeIcon icon={faTrash} />
         </Button>
       }

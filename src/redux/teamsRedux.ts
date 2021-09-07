@@ -21,6 +21,7 @@ const createActionName = (name: string) => `app/${reducerName}/${name}`;
 // Action types
 const ADD_TEAM = createActionName('ADD_TEAM');
 const ADD_TEAM_PLAYER = createActionName('ADD_TEAM_PLAYER');
+const REMOVE_TEAM = createActionName('REMOVE_TEAM');
 
 // Action creators
 const createNewTeamTemplate = (
@@ -49,6 +50,10 @@ export const addNewTeamPlayer = (teamID: string, playerID: string): TeamAction =
   team: createNewTeamTemplate(teamID, 'Team', [playerID], 0, 0, 0), type: ADD_TEAM_PLAYER,
 });
 
+export const removeTeam = (teamID: string): TeamAction => ({
+  team: createNewTeamTemplate(teamID, 'Team', [], 0, 0, 0), type: REMOVE_TEAM,
+});
+
 // reducer
 export default function reducer(state:TeamState = initialState, action: TeamAction): TeamState {
   switch(action.type) {
@@ -72,6 +77,12 @@ export default function reducer(state:TeamState = initialState, action: TeamActi
       });
       return {
         teams: newTeams,
+      };
+    case REMOVE_TEAM:
+      return {
+        teams: [
+          ...state.teams.filter(team => team._id !== action.team._id),
+        ],
       };
     default:
       return state;
