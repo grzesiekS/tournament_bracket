@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import { removeTeam } from '../../../redux/teamsRedux';
+import { removePlayer } from '../../../redux/playersRedux';
 
 import { Title } from '../../common/Title/Title';
 import { Player } from './Player/Player';
@@ -25,6 +26,15 @@ export const Team: React.FC<ITeamComponent> = (
   const [showPlayers, setShowPlayers] = useState(false);
   const buttonTitle = showPlayers ? 'Hide Players' : 'Show Players';
 
+  const removeTeamsWithPlayers = () => {
+    
+    for(const player of players) {
+      dispatch(removePlayer(player));
+    }
+
+    dispatch(removeTeam(_id));
+  };
+
   return (
     <div className={styles.container}>
       <Title text={name} color='dark'/>
@@ -42,7 +52,7 @@ export const Team: React.FC<ITeamComponent> = (
         :
         <Button 
           title="" 
-          actionOnClick={() => dispatch(removeTeam(_id))}
+          actionOnClick={() => removeTeamsWithPlayers()}
         >
           <FontAwesomeIcon icon={faTrash} />
         </Button>
