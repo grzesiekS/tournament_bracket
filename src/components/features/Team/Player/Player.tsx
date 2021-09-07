@@ -1,23 +1,36 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-import { getPlayers } from '../../../../redux/playersRedux';
+import { getPlayers, removePlayer } from '../../../../redux/playersRedux';
 
 import { ScoreDetails } from '../../ScoreDetails/ScoreDetails';
+import { Button } from '../../../common/Button/Button';
 import styles from './Player.module.scss';
 
 export const Player: React.FC<{id:string}> = ({ id }) => {
-
+  const dispatch = useDispatch();
   const player = useSelector(getPlayers).filter(player =>player._id === id)[0];
 
   return(
     <div className={styles.container}>
-      <p className={styles.name}>{player.name}</p>
-      <ScoreDetails
-        win={player.win}
-        draw={player.draw}
-        lose={player.lose}
-      />
+      {player !== undefined && 
+        <>
+          <p className={styles.name}>{player.name}</p>
+          <ScoreDetails
+            win={player.win}
+            draw={player.draw}
+            lose={player.lose}
+          />
+          <Button 
+            title=""
+            actionOnClick={() => dispatch(removePlayer(id))}
+          >
+            <FontAwesomeIcon icon={faTrash} />
+          </Button>
+        </>
+      }
     </div>
   );
 };
