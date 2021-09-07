@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import { Title } from '../../common/Title/Title';
 import { Player } from './Player/Player';
@@ -27,11 +29,16 @@ export const Team: React.FC<ITeamComponent> = (
         draw={draw}
         lose={lose}
       />
-      {viewPlayerStatus && 
+      {viewPlayerStatus 
+        ? 
         <Button 
           title={buttonTitle}
           actionOnClick={() => setShowPlayers(!showPlayers)} 
         />
+        :
+        <Button title="">
+          <FontAwesomeIcon icon={faTrash} />
+        </Button>
       }
       {showPlayers && 
         <div className={styles.playerList}>

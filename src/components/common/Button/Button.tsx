@@ -7,13 +7,14 @@ interface ButtonInt {
   actionOnClick?: () => void,
 }
 
-export const Button: React.FC<ButtonInt> = ({ title, actionOnClick }) => {
+export const Button: React.FC<ButtonInt> = ({ title, actionOnClick, children }) => {
   return (
     <button 
       className={styles.button}
       onClick={actionOnClick}
     >
       {title}
+      {children}
     </button>
   );
 }; 
