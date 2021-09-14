@@ -15,6 +15,7 @@
     "@types/react-dom": "^17.0.7",
     "@types/shortid": "^0.0.29",
     "@types/uniqid": "^5.3.1",
+    "axios": "^0.21.4",
     "clsx": "^1.1.1",
     "cors": "^2.8.5",
     "enzyme": "^3.11.0",
