@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const playerSchema = new mongoose.Schema({
   name: {type: String, required: true},
-  win: { type: Number, set: 0 },
-  draw: { type: Number, set: 0 },
-  lose: { type: Number, set: 0 },
+  win: { type: Number },
+  draw: { type: Number },
+  lose: { type: Number },
 });
 
 module.exports = mongoose.model('Player', playerSchema);
