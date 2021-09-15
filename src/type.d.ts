@@ -56,7 +56,7 @@ type TeamState = {
 
 type TeamAction = {
   type: string,
-  team: ITeam,
+  team: ITeam[],
 }
 
 type AddTeam = {

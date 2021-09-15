@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { getTeams } from '../../../redux/teamsRedux';
+import { getTeams, fetchAllTeams } from '../../../redux/teamsRedux';
 
 import { Team } from '../Team/Team';
 import { Button } from '../../common/Button/Button';
@@ -13,9 +13,15 @@ import styles from './Bracket.module.scss';
 
 export const Bracket: React.FC = () => {
   const teams: ITeam[] = useSelector(getTeams);
+  const dispatch = useDispatch();
 
   const [teamAddPopUpVisibility, setTeamAddPopUpVisibility] = useState(false);
   const [playerAddPopUpVisibility, setPlayerAddPopUpVisibility] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchAllTeams());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
 
   return (
     <ModalBox>
