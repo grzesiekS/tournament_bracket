@@ -5,10 +5,6 @@ import thunk from 'redux-thunk';
 import teamsReducer from './teamsRedux';
 import playersReducer from './playersRedux';
 
-const initialState = {
-  
-};
-
 // define reducers
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const reducers = {
@@ -22,7 +18,6 @@ const combinedReducers = combineReducers(reducers);
 // create store
 const store = createStore(
   combinedReducers,
-  initialState,
   composeWithDevTools(
     applyMiddleware(thunk)
   ),
