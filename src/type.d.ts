@@ -70,7 +70,7 @@ type PlayerState = {
 
 type PlayerAction = {
   type: string,
-  player: IPlayer
+  player: IPlayer[]
 }
 
 type state = {
