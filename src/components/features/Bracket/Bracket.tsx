@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getTeams, fetchAllTeams } from '../../../redux/teamsRedux';
+import { fetchAllPlayers } from '../../../redux/playersRedux';
 
 import { Team } from '../Team/Team';
 import { Button } from '../../common/Button/Button';
@@ -20,6 +21,7 @@ export const Bracket: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchAllTeams());
+    dispatch(fetchAllPlayers());
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
