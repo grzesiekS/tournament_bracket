@@ -56,6 +56,16 @@ export const fetchAllPlayers = () => (dispatch: Dispatch<PlayerAction>) => {
     });
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const removePlayerDb = (id: string) => async (dispatch: Dispatch<PlayerAction>) => {
+  try {
+    await Axios.delete(`http://localhost:8000/api/player/${id}`);
+    dispatch(removePlayer(id));
+  } catch(err) {
+    console.warn(err);
+  }
+};
+
 // reducer
 export default function reducer(state: PlayerState, action:PlayerAction): PlayerState {
   switch(action.type) {
