@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-import { getPlayers, removePlayer } from '../../../../redux/playersRedux';
+import { getPlayers, removePlayerDb } from '../../../../redux/playersRedux';
 
 import { ScoreDetails } from '../../ScoreDetails/ScoreDetails';
 import { Button } from '../../../common/Button/Button';
@@ -25,7 +25,7 @@ export const Player: React.FC<{id:string}> = ({ id }) => {
           />
           <Button 
             title=""
-            actionOnClick={() => dispatch(removePlayer(id))}
+            actionOnClick={() => dispatch(removePlayerDb(id))}
           >
             <FontAwesomeIcon icon={faTrash} />
           </Button>

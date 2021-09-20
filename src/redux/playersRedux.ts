@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import { Dispatch } from 'react';
+import { addNewTeamPlayerDb } from './teamsRedux';
 
 /* SELECTORS */
 export const getPlayers = (state: state): IPlayer[] => state.players.players || [];
@@ -37,8 +38,8 @@ export const fetchSucess = (playersData: IPlayer[]): PlayerAction => ({
   player: playersData, type: FETCH_SUCESS,
 });
 
-export const addNewPlayer = (playerName: string): PlayerAction => (
-  {player: [createNewPlayerTemplate('1234', playerName, 0, 0, 0)], type: ADD_PLAYER});
+export const addNewPlayer = (player: IPlayer): PlayerAction => (
+  {player: [player], type: ADD_PLAYER});
 
 export const removePlayer = (playerId: string): PlayerAction => (
   {player: [createNewPlayerTemplate(playerId, '', 0, 0, 0)], type: REMOVE_PLAYER});
@@ -54,6 +55,30 @@ export const fetchAllPlayers = () => (dispatch: Dispatch<PlayerAction>) => {
     .catch(err => {
       console.warn(err);
     });
+};
+
+export const addNewPlayerDb = (
+  playerName: string,
+  teamId: string,) => 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  async (dispatch: Dispatch<unknown>) => {
+    try {
+      const res = await Axios.post('http://localhost:8000/api/player', {name: playerName});
+      dispatch(addNewTeamPlayerDb(teamId, res.data.newPlayer._id));
+      dispatch(addNewPlayer(res.data.newPlayer));
+    } catch(err) {
+      console.warn(err);
+    }
+  };
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const removePlayerDb = (id: string) => async (dispatch: Dispatch<PlayerAction>) => {
+  try {
+    await Axios.delete(`http://localhost:8000/api/player/${id}`);
+    dispatch(removePlayer(id));
+  } catch(err) {
+    console.warn(err);
+  }
 };
 
 // reducer

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { addNewPlayer } from '../../../../redux/playersRedux';
-import { addNewTeamPlayer } from '../../../../redux/teamsRedux';
+import { addNewPlayerDb } from '../../../../redux/playersRedux';
 
 import { FormComponents } from '../../../common/FormComponents/FormComponents';
 import { Button } from '../../../common/Button/Button';
@@ -35,8 +34,7 @@ export const PlayerAddPopUp: React.FC<IPopUp> = ({ closePopUp, teams = [] }) => 
   const createNewPlayer = () => {
     if(
       playerName !== '' && selectedTeam !== '') {
-      dispatch(addNewPlayer(playerName));
-      dispatch(addNewTeamPlayer(selectedTeam, '1234'));
+      dispatch(addNewPlayerDb(playerName, selectedTeam));
       closePopUp(false);
     }
   };
