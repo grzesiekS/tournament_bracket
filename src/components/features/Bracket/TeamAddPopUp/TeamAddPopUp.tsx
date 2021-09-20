@@ -13,7 +13,7 @@ export const TeamAddPopUp: React.FC<IPopUp> = ({ closePopUp }) => {
   const [teamName, setTeamName] = useState('');
 
   const createNewTeam = () => {
-    if(teamName != '') {
+    if(teamName !== '') {
       closePopUp(false);
       dispatch(addNewTeamDb(teamName));
     }

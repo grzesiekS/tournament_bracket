@@ -76,6 +76,17 @@ export const addNewTeamDb = (teamName: string) => async (dispatch: Dispatch<Team
   }
 };
 
+export const addNewTeamPlayerDb = (teamID: string, playerID: string) => 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  async (dispatch: Dispatch<TeamAction>) => {
+    try {
+      await Axios.put(`http://localhost:8000/api/team/${teamID}`, {playerId: playerID});
+      dispatch(addNewTeamPlayer(teamID, playerID));
+    } catch(err) {
+      console.warn(err);
+    }
+  };
+
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const removeTeamDb = (id: string) => async (dispatch: Dispatch<TeamAction>) => {
   try {
