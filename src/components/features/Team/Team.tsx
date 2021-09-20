@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-import { removeTeam } from '../../../redux/teamsRedux';
+import { removeTeamDB } from '../../../redux/teamsRedux';
 import { removePlayer } from '../../../redux/playersRedux';
 
 import { Title } from '../../common/Title/Title';
@@ -32,7 +32,7 @@ export const Team: React.FC<ITeamComponent> = (
       dispatch(removePlayer(player));
     }
 
-    dispatch(removeTeam(_id));
+    dispatch(removeTeamDB(_id));
   };
 
   return (

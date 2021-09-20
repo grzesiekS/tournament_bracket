@@ -76,6 +76,16 @@ export const addNewTeamDb = (teamName: string) => async (dispatch: Dispatch<Team
   }
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const removeTeamDB = (id: string) => async (dispatch: Dispatch<TeamAction>) => {
+  try {
+    await Axios.delete(`http://localhost:8000/api/team/${id}`);
+    dispatch(removeTeam(id));
+  } catch(err) {
+    console.warn(err);
+  }
+};
+
 // reducer
 export default function reducer(state:TeamState, action: TeamAction): TeamState {
   switch(action.type) {

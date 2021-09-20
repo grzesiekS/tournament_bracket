@@ -33,3 +33,15 @@ exports.addTeam = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+exports.deleteTeam = async (req, res) => {
+  try {
+    const team = await Team.findById(req.params.id);
+    if(team) {
+      await team.remove();
+      res.json({ message: 'Team Removed', status: true });
+    } else res.status(404).json({ message: 'Problem with removing a team', status: false });
+  } catch(err) {
+    res.status(500).json(err);
+  }
+};
