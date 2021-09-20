@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { addNewTeam } from '../../../../redux/teamsRedux';
+import { addNewTeamDb } from '../../../../redux/teamsRedux';
 
 import { FormComponents } from '../../../common/FormComponents/FormComponents';
 import { Button } from '../../../common/Button/Button';
@@ -15,7 +15,7 @@ export const TeamAddPopUp: React.FC<IPopUp> = ({ closePopUp }) => {
   const createNewTeam = () => {
     if(teamName != '') {
       closePopUp(false);
-      dispatch(addNewTeam(teamName));
+      dispatch(addNewTeamDb(teamName));
     }
   };
 

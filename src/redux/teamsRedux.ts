@@ -40,8 +40,8 @@ export const fetchSucess = (teamsData: ITeam[]): TeamAction => ({
   team: teamsData, type: FETCH_SUCESS,
 });
 
-export const addNewTeam = (teamName: string): TeamAction => (
-  {team: [createNewTeamTemplate('1234', teamName, [], 0, 0, 0)], type: ADD_TEAM}
+export const addNewTeam = (team: ITeam): TeamAction => (
+  {team: [team], type: ADD_TEAM}
 );
 
 export const addNewTeamPlayer = (teamID: string, playerID: string): TeamAction => ({
@@ -64,6 +64,16 @@ export const fetchAllTeams = () => (dispatch: Dispatch<TeamAction>) => {
     .catch(err => {
       console.warn(err);
     });
+};
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const addNewTeamDb = (teamName: string) => async (dispatch: Dispatch<TeamAction>) => {
+  try {
+    const res = await Axios.post('http://localhost:8000/api/team', {name: teamName});
+    dispatch(addNewTeam(res.data.newTeam));
+  } catch(err) {
+    console.warn(err);
+  }
 };
 
 // reducer
