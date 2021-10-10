@@ -1,0 +1,11 @@
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 2em;
+}
+
+div:nth-child(2n) {
+  grid-column-end: -1;
+}

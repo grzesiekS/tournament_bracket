@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTeams, fetchAllTeams } from '../../../redux/teamsRedux';
 import { fetchAllPlayers } from '../../../redux/playersRedux';
 
-import { Team } from '../Team/Team';
 import { Button } from '../../common/Button/Button';
 import { ModalBox } from '../../common/ModalBox/ModalBox';
 import { TeamAddPopUp } from './TeamAddPopUp/TeamAddPopUp';
 import { PlayerAddPopUp } from './PlayerAddPopUp/PlayerAddPopUp';
 
 import styles from './Bracket.module.scss';
+import { Container } from './Container/Container';
 
 export const Bracket: React.FC = () => {
   const teams: ITeam[] = useSelector(getTeams);
@@ -50,12 +50,8 @@ export const Bracket: React.FC = () => {
           title='Add Player'
           actionOnClick={() => setPlayerAddPopUpVisibility(true)}
         />
-        {teams.map(team => (
-          <Team
-            key={team._id}
-            {...team}
-          />
-        ))}
+        
+        <Container teams={teams}></Container>
       </div>
     </ModalBox>
   );
